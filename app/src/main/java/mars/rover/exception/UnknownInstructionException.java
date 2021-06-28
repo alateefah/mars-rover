@@ -1,4 +1,4 @@
-package mars.rover.util.exception;
+package mars.rover.exception;
 
 public class UnknownInstructionException extends RuntimeException {
 

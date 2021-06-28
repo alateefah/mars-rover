@@ -1,6 +1,6 @@
 package mars.rover.pojo;
 
-import mars.rover.util.exception.NotOnPlateauException;
+import mars.rover.exception.NotOnPlateauException;
 
 public class Position {
     
@@ -44,16 +44,14 @@ public class Position {
         return this.plateau;
     }
 
-	public boolean IsOnPlateau() {
-		if (x < 0 || x > plateau.getDimX()) {
-			return false;
-		}
-		
-		if (y < 0 || y > plateau.getDimY()) {
-			return false;
-		}
-		
-		return true;
+	public void assertRoverIsOnPlateau() {
+        Position pos = new Position(this.getX(), this.getY());
+        if (x < 0 || x > plateau.getDimX()) {
+            throw new NotOnPlateauException(plateau, pos);
+        }
+        if (y < 0 || y > plateau.getDimY()) {
+            throw new NotOnPlateauException(plateau, pos);
+        }
 	}
 	
 	public Position move() {
@@ -61,27 +59,19 @@ public class Position {
 		switch (this.coord) {
 			case "E": 
                 newPosition = new Position(x + 1, y, coord, plateau);
-                if (!newPosition.IsOnPlateau()) {
-                    throw new NotOnPlateauException(plateau, newPosition);
-                }
+                newPosition.assertRoverIsOnPlateau();
                 return newPosition;
 			case "N": 
                 newPosition = new Position(x, y + 1, coord, plateau);
-                if (!newPosition.IsOnPlateau()) {
-                    throw new NotOnPlateauException(plateau, newPosition);
-                }
+                newPosition.assertRoverIsOnPlateau();
                 return newPosition;
 			case "S": 
                 newPosition = new Position(x, y - 1, coord, plateau);
-                if (!newPosition.IsOnPlateau()) {
-                    throw new NotOnPlateauException(plateau, newPosition);
-                }
+                newPosition.assertRoverIsOnPlateau();
                 return newPosition;
 			case "W": 
                 newPosition = new Position(x - 1, y, coord, plateau); 
-                if (!newPosition.IsOnPlateau()) {
-                    throw new NotOnPlateauException(plateau, newPosition);
-                }
+                newPosition.assertRoverIsOnPlateau();
                 return newPosition;                
 			default: throw new RuntimeException("Invalid direction!");
 		}      

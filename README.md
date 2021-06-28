@@ -53,3 +53,13 @@ Expectations:
 - Code should be modular and readable
 - Unit tests
 - Your choice of language is one with which you are comfortable
+
+To Run
+```
+./gradlew run 'full path to input file'
+```
+
+To Test
+```
+./gradlew test
+```

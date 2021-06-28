@@ -1,7 +1,7 @@
 package mars.rover.pojo;
 
+import mars.rover.exception.UnknownInstructionException;
 import mars.rover.util.OrientationCommand;
-import mars.rover.util.exception.UnknownInstructionException;
 
 public class Rover {
     

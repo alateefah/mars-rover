@@ -2,12 +2,12 @@ package mars.rover;
 
 import org.junit.Test;
 
+import mars.rover.exception.NotOnPlateauException;
+import mars.rover.exception.UnknownInstructionException;
 import mars.rover.pojo.Plateau;
 import mars.rover.pojo.Position;
 import mars.rover.pojo.Rover;
 import mars.rover.util.OrientationCommand;
-import mars.rover.util.exception.NotOnPlateauException;
-import mars.rover.util.exception.UnknownInstructionException;
 
 import static org.junit.Assert.*;
 
@@ -74,6 +74,7 @@ public class AppTest {
         assertEquals(southRover.getPosition().getCoord(), OrientationCommand.valueOf("SL").getValue());
     }
 
+    @Test
     public void test_right_orientation() {
         //rotate right from North
         Position northPosition = new Position(1, 2, "N", plateau);

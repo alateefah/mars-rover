@@ -1,4 +1,4 @@
-package mars.rover.util.exception;
+package mars.rover.exception;
 
 import mars.rover.pojo.Plateau;
 import mars.rover.pojo.Position;
