@@ -56,7 +56,8 @@ Expectations:
 
 To Run
 ```
-./gradlew run 'full path to input file'
+.\gradlew run --args=full_path_to_input_file
+e.g .\gradlew run --args=C:\Users\alateefah\mars-rover\input.txt
 ```
 
 To Test
